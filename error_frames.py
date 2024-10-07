@@ -46,6 +46,13 @@ def getGoodFrames(n):
 
 
 def generateFrameHoldNearestGoodFrame(readNode):
+    
+    try:
+        if(readNode.Class() != "Read"):
+            raise TypeError("select 1 read node")
+    except:
+        raise TypeError(f"this expects single read node, receieved a {type(readNode)}")
+
 
     first = int(readNode['first'].getValue())
     last = int(readNode['last'].getValue())
