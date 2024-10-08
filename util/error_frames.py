@@ -1,4 +1,6 @@
-def getErrorFrames(n):
+import nuke
+
+def getErrorFramesFromReadNode(n):
 
     nodeClass = n.Class()
 
@@ -19,7 +21,7 @@ def getErrorFrames(n):
             
     return(badFrames)
 
-def getGoodFrames(n):
+def getGoodFramesFromReadNode(n):
 
     nodeClass = n.Class()
 
@@ -57,7 +59,7 @@ def generateFrameHoldNearestGoodFrame(readNode):
     first = int(readNode['first'].getValue())
     last = int(readNode['last'].getValue())
     
-    frames = nearestGoodFrame(getGoodFrames(readNode), first, last)
+    frames = nearestGoodFrame(getGoodFramesFromReadNode(readNode), first, last)
 
     frameHold = nuke.createNode("FrameHold")
     value = frameHold["firstFrame"]

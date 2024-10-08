@@ -2,7 +2,7 @@ import os
 import subprocess
 import platform
 
-def open_file_browser(path):
+def _open_system_browser(path):
     # Ensure the path exists
     if not os.path.exists(path):
         raise FileNotFoundError(f"The path {path} does not exist.")
